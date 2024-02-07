@@ -15,25 +15,25 @@ const restaurant = {
     return[this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
   },
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+ 
 };
+
+
+
+const newMenu = [...restaurant.starterMenu, ...restaurant.mainMenu]
+console.log(newMenu)
+
+for (const [oneItem, nameOfItem] of newMenu.entries())
+console.log(oneItem, nameOfItem)
 
 console.log(restaurant.order(2, 0))
 const [start, mainFood] = restaurant.order(2,0)
 console.log(start, mainFood)
+
+//Optional Chaining
+
+
+
 
 
 // let [main, secondary] = restaurant.starterMenu;
@@ -299,6 +299,10 @@ const game = {
   },
 };
 
+for (const [team, odds] of Object.entries(game.odds)){
+  const teamStr = 
+  console.log(`Odd of ... ${odds}`)
+}
 
 const [players1, players2] = game.players
 console.log(players1, players2)
@@ -311,3 +315,62 @@ console.log(allPlayers)
 
 const players1final = ["Thiago", "Coutinho", "Persitec", ...players1]
 console.log(players1final)
+
+const {team1, x:draw, team2} = game.odds
+console.log(team1, draw, team2)
+
+
+for (const [i, player] of game.scored.entries()){
+  console.log(`Goal ${i + 1}: ${player}`)
+}
+
+
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
+const properties = Object.keys(openingHours)
+console.log(properties)
+
+const values = Object.values(openingHours)
+console.log(values)
+
+const keyPair = Object.entries(openingHours)
+console.log(keyPair)
+
+for (const [key, {open, close}] of keyPair) {
+  console.log(`On ${key}, we open on ${open}, and close at ${close}`)
+}
+
+// SETS
+
+// new Set([iterable]) – creates the set, and if an iterable object is provided (usually an array), copies values from it into the set.
+// set.add(value) – adds a value, returns the set itself.
+// set.delete(value) – removes the value, returns true if value existed at the moment of the call, otherwise false.
+// set.has(value) – returns true if the value exists in the set, otherwise false.
+// set.clear() – removes everything from the set.
+// set.size – is the elements count.
+
+
+
+const rest  = new Map()
+rest.set('name', "Solo Grano")
+rest.set('location', 'gigiri lane')
+.set('workers', 1)
+.set(true, 'we are open')
+.set(false, 'we are closed')
+.set("cindy", "bootiful")
+
+console.log(rest.get("cindy"))
+console.log(rest.values())
