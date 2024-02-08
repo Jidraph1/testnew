@@ -353,14 +353,6 @@ for (const [key, {open, close}] of keyPair) {
   console.log(`On ${key}, we open on ${open}, and close at ${close}`)
 }
 
-// SETS
-
-// new Set([iterable]) – creates the set, and if an iterable object is provided (usually an array), copies values from it into the set.
-// set.add(value) – adds a value, returns the set itself.
-// set.delete(value) – removes the value, returns true if value existed at the moment of the call, otherwise false.
-// set.has(value) – returns true if the value exists in the set, otherwise false.
-// set.clear() – removes everything from the set.
-// set.size – is the elements count.
 
 
 
@@ -374,3 +366,69 @@ rest.set('location', 'gigiri lane')
 
 console.log(rest.get("cindy"))
 console.log(rest.values())
+
+
+const question = new Map([
+  ['question', 'Who has a bigger bunda'],
+  [1, 'Fauzia'],
+  [2, 'Rita'],
+  [3, 'Rina'],
+  ['correct', 1],
+  [true, 'Correct💯'],
+  [false, 'Try again dummy']
+])
+
+console.log(question)
+console.log(question.get('question'))
+for( const [number, value] of question){
+  if(typeof number === 'number')
+   console.log(`Answer ${number}: ${value}`)
+}
+
+// const ans = Number(prompt('Who are you hitting?'))
+
+// console.log(question.get(question.get('correct') === ans))
+
+
+
+
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+
+console.log(gameEvents.values())
+const events = new Set(gameEvents.values())
+console.log(events.size)
+
+gameEvents.delete(64)
+console.log(gameEvents)
+
+// 3
+console.log(`An event happened, on average, every ${gameEvents.size} minutes`)
+
+const passenger = 'jIdraPh'
+
+const passengerLower = passenger.toLowerCase()
+console.log(passengerLower)
+
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1)
+console.log(passengerCorrect)
+
+const maskCreditCard = function(number){
+  const str = number + ""
+  const last = str.slice(-4)
+  return last.padStart(str.length, '*')
+}
+
+console.log(maskCreditCard(148348937481902))
